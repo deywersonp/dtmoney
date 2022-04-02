@@ -22,7 +22,7 @@ export function NewTransactionModal({
   onRequestClose,
 }: NewTransactionModalProps) {
   const [title, setTitle] = useState('');
-  const [value, setValue] = useState(0);
+  const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState('');
   const [type, setType] = useState('deposit');
 
@@ -31,7 +31,7 @@ export function NewTransactionModal({
 
     const data = {
       title,
-      value,
+      amount,
       category,
       type
     };
@@ -65,8 +65,8 @@ export function NewTransactionModal({
         <input
           placeholder="Valor"
           type="number"
-          value={value}
-          onChange={event => setValue(+event.target.value)}
+          value={amount}
+          onChange={event => setAmount(Number(event.target.value))}
         />
 
         <TransactionTypeContainer>
